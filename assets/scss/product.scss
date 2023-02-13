@@ -1,0 +1,30 @@
+@import '@/assets/scss/variables.scss';
+
+.product {
+    img {
+        width: 280px;
+        max-width: 100%;
+        display: block;
+        position: relative;
+    }
+    
+    &__price {
+        
+        &--default, &--sale{
+            font-size: 25px;
+        }
+
+        &--default{
+            text-decoration: line-through;
+        }
+
+        &--sale{
+            font-weight: bold;
+            color: $primary-0;
+        }
+
+        &--label {
+            font-weight: bold;
+        }
+    }
+}
