@@ -1,0 +1,25 @@
+steps:
+# install dependencies
+- name: 'node:14'
+  id: install-dependencies
+  entrypoint: 'yarn'
+  args: ['install']
+
+# lint and test
+- name: 'node:14'
+  id: Run lint
+  entrypoint: 'yarn'
+  args: ['run', 'lint']
+- name: 'node:14'
+  id: Run test
+  entrypoint: 'yarn'
+  args: ['test']
+
+# run cypress
+- name: cypress/included:8.4.1
+  id: Run E2Es
+  entrypoint: 'yarn'
+  args: ['run', 'ci']
+
+options:
+  machineType: 'E2_HIGHCPU_8'
